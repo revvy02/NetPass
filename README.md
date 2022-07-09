@@ -6,14 +6,10 @@
 </div>
 <!--moonwave-hide-before-this-line-->
 
-## Usage
-MockNetwork is designed for writing tests for things that have side effects across a network.
-Examples include things like a networking library, or a player DataStore replication library.
-
 ## Install using Package Manager
 [NetPass can be installed as a package from Wally](https://wally.run/package/revvy02/netpass)
 
-## Usage
+## Examples
 **On the server**
 ```lua
 local winnerScores = {
