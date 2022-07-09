@@ -1,4 +1,4 @@
-# MockNetwork
+# NetPass
 <div align="center">
 	<h1>NetPass</h1>
 	<p>Roblox networking library for passing tables with instance keys across the network boundary properly</p>
