@@ -1,5 +1,23 @@
 local Types = require(script.Parent.Types)
 
+local function isCyclic(tab, checked)
+    if checked == nil then
+        checked = {}
+    end
+
+    checked[tab] = true
+
+    for _, value in tab do
+        if typeof(value) == "table" then
+            if isCyclic(value, checked) then
+                return true
+            end
+        end
+    end
+
+    return false
+end
+
 local function copy(tab: table): table
     local new = {}
 
@@ -55,14 +73,26 @@ local function getKeyData(tab: table): Types.KeyData
     return keyData
 end
 
+--[=[
+
+    @function encode
+    @within NetPass
+
+    @param ... NetData
+    @return MetaData, ...NetData
+]=]
 local function encode(...: Types.NetData): (Types.MetaData, ...Types.NetData)
     local encoded = {...}
     local metaData: Types.MetaData = {}
 
     for index, arg in encoded do
-        if typeof(arg) == "table" and hasInstanceKeys(arg) then
-            metaData[index] = getKeyData(arg)
-            encoded[index] = copy(arg)
+        if typeof(arg) == "table" then
+            assert(not isCyclic(arg), "Cannot encode cyclic tables")
+
+            if hasInstanceKeys(arg) then
+                metaData[index] = getKeyData(arg)
+                encoded[index] = copy(arg)
+            end
         end
     end
     

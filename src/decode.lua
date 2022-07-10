@@ -14,6 +14,14 @@ local function format(keyData: Types.KeyData, arg: table)
     return copy
 end
 
+--[=[
+    @function decode
+    @within NetPass
+
+    @param metaData MetaData
+    @param ... NetData
+    @return ...NetData
+]=]
 local function decode(metaData: Types.MetaData, ...: Types.NetData): ...Types.NetData
     if metaData == nil then
         return ...

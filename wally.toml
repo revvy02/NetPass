@@ -1,8 +1,14 @@
 [package]
-name = "prithvi/netpass"
+name = "revvy02/netpass"
+description = "Library for passing tables with instance keys across the network boundary"
 version = "0.1.0"
-registry = "https://github.com/UpliftGames/wally-index"
+license = "MIT"
+authors = ["revvy02"]
 realm = "shared"
+registry = "https://github.com/upliftgames/wally-index"
+
+exclude = ["**"]
+include = ["src", "src/**", "wally.toml", "default.project.json", "LICENSE"]
 
 [dependencies]
 MockNetwork = "revvy02/mocknetwork@1.3.0"
