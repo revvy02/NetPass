@@ -56,8 +56,8 @@ remoteEvent:FireServer({
     [game.Players.Player2] = 2,
 }, "string", true, 100)
 --[[
-    You can pass tuples. You don't have to pass only tables with instance keys, 
-    encode will check every arg and adjust the metadata appended to the beginning of the args
+    You can pass tuples. You don't have to pass only tables with instance keys, encode will
+    check every arg and adjust the metadata appended to the beginning of the returned args
 --]]
 ```
 **On the server**
